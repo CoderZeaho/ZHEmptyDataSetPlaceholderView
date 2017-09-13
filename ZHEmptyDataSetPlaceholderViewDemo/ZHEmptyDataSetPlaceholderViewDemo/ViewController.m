@@ -21,7 +21,6 @@
 }
 
 #pragma mark - DZNEmptyDataSetSource, DZNEmptyDataSetDelegate
-
 - (BOOL)emptyDataSetShouldDisplay:(UIScrollView *)scrollView{
     NSMutableArray *sectionDataSource = [NSMutableArray arrayWithArray:[[self dataSource] firstObject] ?: @[]];
     return ![sectionDataSource ?: @[] count];
@@ -35,9 +34,11 @@
     ZHEmptyDataSetPlaceholderView *placeholderView = [ZHEmptyDataSetPlaceholderView placeholderWithImage:[UIImage imageNamed:@"图标-哭泣-(2)"] ];
     [placeholderView appendTitle:@"新功能正在开发中" completion:^(UILabel *titleLabel, CGFloat *offset, CGFloat *height) {
         titleLabel.textColor = [UIColor colorWithRed:0.62 green:0.62 blue:0.62 alpha:1.00];
+        *offset = 20;
     }];
     [placeholderView appendSubTitle:@"敬请期待" completion:^(UILabel *subtitleLabel, CGFloat *offset, CGFloat *height) {
         subtitleLabel.textColor = [UIColor colorWithRed:0.62 green:0.62 blue:0.62 alpha:1.00];
+        *offset = 10;
     }];
     return placeholderView;
 }
