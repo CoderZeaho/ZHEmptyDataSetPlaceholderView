@@ -22,10 +22,10 @@
 
 - (instancetype)initWithStyle:(UITableViewStyle)style;{
     if (self = [self init]) {
+        
         self.style = style;
         
         [self initialize];
-        
     }
     return self;
 }
@@ -45,7 +45,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.automaticallyAdjustsScrollViewInsets = NO;
     self.tableView.contentOffset = CGPointMake(0, - [self contentInset].top);
     self.tableView.contentInset = [self contentInset];
     self.tableView.scrollIndicatorInsets = [self contentInset];
@@ -66,6 +65,9 @@
         _tableView.dataSource = self;
         _tableView.emptyDataSetSource = self;
         _tableView.emptyDataSetDelegate = self;
+        _tableView.estimatedRowHeight = 0;
+        _tableView.estimatedSectionHeaderHeight = 0;
+        _tableView.estimatedSectionFooterHeight = 0;
     }
     return _tableView;
 }
